@@ -376,9 +376,27 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .fa p{font-size:13px;color:var(--g5);line-height:1.8;padding:0 2px 22px;margin:0;max-width:700px;letter-spacing:-.03em;}
 
 /* ══════════ DISCLOSURE ══════════ */
-.disc{background:var(--g1);border-radius:8px;padding:22px 24px;}
-.disc p{font-size:11.5px;color:var(--g5);line-height:1.85;margin:0;letter-spacing:-.02em;}
-.disc b{color:var(--bk);font-weight:700;}
+.disc{background:var(--g1);border-radius:8px;padding:24px 26px;}
+.disc p{font-size:13px;color:var(--bk-2);line-height:1.85;margin:0;letter-spacing:-.02em;}
+.disc b{color:var(--bk);font-weight:800;}
+
+/* ══════════ 광고 표시 (공정위 추천·보증 심사지침) ══════════ */
+.adbar{background:var(--bk);color:#E6E6E6;}
+.adbar .wrap{
+  display:flex;align-items:center;gap:11px;
+  padding:13px 0;font-size:13.5px;line-height:1.5;letter-spacing:-.03em;
+}
+.adbar em{
+  flex:none;font-style:normal;background:var(--sale);color:var(--wh);
+  font-size:12.5px;font-weight:800;letter-spacing:-.02em;
+  padding:4px 10px;border-radius:3px;
+}
+.adbar span{min-width:0;}
+.adbar b{color:var(--wh);font-weight:800;}
+@media(max-width:560px){
+  .adbar .wrap{align-items:flex-start;gap:9px;padding:12px 0;font-size:12.5px;}
+  .adbar em{margin-top:1px;}
+}
 
 /* ══════════ FOOTER ══════════ */
 footer{border-top:1px solid var(--g2);padding:44px 0 100px;background:var(--wh);}
@@ -556,7 +574,7 @@ footer{border-top:1px solid var(--g2);padding:44px 0 100px;background:var(--wh);
       "name": "이 사이트가 겜스고 공식 사이트인가요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "아닙니다. 구독절반은 겜스고 파트너 프로그램에 참여해 상품 정보를 정리해 안내하는 독립 사이트이며, 링크를 통해 구매가 이루어지면 운영자가 수수료를 받을 수 있습니다."
+        "text": "아닙니다. 구독절반은 겜스고 파트너 프로그램에 참여해 상품 정보를 정리해 안내하는 독립 사이트이며, 링크를 통해 구매가 이루어지면 운영자가 겜스고로부터 판매 수수료를 지급받습니다."
       }
     },
     {
@@ -572,6 +590,13 @@ footer{border-top:1px solid var(--g2);padding:44px 0 100px;background:var(--wh);
 </script>
 </head>
 <body>
+
+<div class="adbar">
+  <div class="wrap">
+    <em>광고</em>
+    <span>이 페이지는 겜스고(GamsGo) <b>제휴 링크</b>를 포함합니다. 링크를 통해 구매가 이루어지면 운영자가 겜스고로부터 <b>판매 수수료를 지급받습니다.</b> 구매자가 부담하는 금액에는 영향이 없습니다.</span>
+  </div>
+</div>
 
 <header class="hd">
   <div class="hd-util">
@@ -590,7 +615,7 @@ footer{border-top:1px solid var(--g2);padding:44px 0 100px;background:var(--wh);
         <a href="#calc">절약 계산기</a>
         <a href="#how">이용 방법</a>
       </nav>
-      <a href="#board" class="hd-cta">최저가 보기</a>
+      <a href="#board" class="hd-cta">가격표 보기</a>
     </div>
   </div>
   <div class="hd-tabs">
@@ -921,7 +946,7 @@ footer{border-top:1px solid var(--g2);padding:44px 0 100px;background:var(--wh);
       </article>
 
     </div>
-    <p class="note"><span>ⓘ</span><span><b>2026년 8월 19일</b> 겜스고 한국어 결제창에서 하나씩 확인한 금액입니다. 굵게 적힌 "실제 결제"가 카드에서 실제로 빠져나가는 돈이고, 큰 숫자는 그걸 개월 수로 나눈 월 환산가입니다. 정가는 각 서비스 공식 개인 요금제 기준입니다. 환율 · 프로모션 · 재고에 따라 바뀔 수 있으니 결제 직전 겜스고 화면의 최종 금액을 꼭 확인하세요. 소프트웨어 · 게임 충전 · VPN 등 여기 없는 상품은 겜스고 카탈로그에서 볼 수 있습니다.</span></p>
+    <p class="note"><span>ⓘ</span><span><b>2026년 8월 19일</b> 겜스고 한국어 결제창에서 하나씩 확인한 금액입니다. 굵게 적힌 "실제 결제"가 카드에서 실제로 빠져나가는 돈이고, 큰 숫자는 그걸 개월 수로 나눈 월 환산가입니다. 정가는 각 서비스 공식 개인 요금제 기준입니다. 환율 · 프로모션 · 재고에 따라 바뀔 수 있으니 결제 직전 겜스고 화면의 최종 금액을 꼭 확인하세요. 상품 설명에 쓰인 "공식", "프리미엄", "정품" 같은 표현은 겜스고 상품 페이지의 안내를 옮긴 것이며, 구독절반은 각 서비스사의 공식 판매처가 아닙니다. 소프트웨어 · 게임 충전 · VPN 등 여기 없는 상품은 겜스고 카탈로그에서 볼 수 있습니다.</span></p>
   </div>
 </section>
 
@@ -933,6 +958,7 @@ footer{border-top:1px solid var(--g2);padding:44px 0 100px;background:var(--wh);
       <div><b>150+</b><span>서비스 제공 국가</span></div>
       <div><b>7년</b><span>플랫폼 운영 기간</span></div>
     </div>
+    <p class="calc-note" style="text-align:center;">위 수치는 겜스고(GamsGo)가 자사 한국어 홈페이지에 게시한 내용을 그대로 옮긴 것으로, 구독절반이 별도로 검증한 값이 아닙니다.</p>
   </div>
 </section>
 
@@ -1002,7 +1028,7 @@ footer{border-top:1px solid var(--g2);padding:44px 0 100px;background:var(--wh);
       </div>
       <div class="fi">
         <button class="fq">이 사이트가 겜스고 공식 사이트인가요?<i>+</i></button>
-        <div class="fa"><p>아니요. 구독절반은 겜스고를 운영하는 회사(GamsGo Ltd.)가 만든 공식 사이트가 아니라, 겜스고 파트너 프로그램에 참여해 상품 정보를 정리해 안내하는 독립 사이트입니다. 링크를 통해 구매가 이루어지면 운영자가 소정의 수수료를 받을 수 있습니다.</p></div>
+        <div class="fa"><p>아니요. 구독절반은 겜스고를 운영하는 회사(GamsGo Ltd.)가 만든 공식 사이트가 아니라, 겜스고 파트너 프로그램에 참여해 상품 정보를 정리해 안내하는 독립 사이트입니다. 링크를 통해 구매가 이루어지면 운영자가 겜스고로부터 판매 수수료를 지급받습니다. 이는 구매자가 부담하는 금액에 영향을 주지 않습니다.</p></div>
       </div>
       <div class="fi">
         <button class="fq">결제 · 환불 · 고객지원은 어디서 처리되나요?<i>+</i></button>
@@ -1027,7 +1053,7 @@ footer{border-top:1px solid var(--g2);padding:44px 0 100px;background:var(--wh);
 <section class="sec" id="disclosure" style="padding-top:0;">
   <div class="wrap">
     <div class="disc">
-      <p><b>제휴 고지</b> · 구독절반은 겜스고(GamsGo) 공식 운영사가 아니며, 겜스고 파트너 프로그램에 참여해 안내 콘텐츠를 제공하는 독립 사이트입니다. 본 페이지의 링크를 통해 상품을 구매하시면 운영자가 판매 수수료를 받을 수 있으며, 이는 구매자가 부담하는 금액에 영향을 주지 않습니다. 상품 가격 · 조건 · 재고는 겜스고 사정에 따라 사전 고지 없이 변경될 수 있고, 실제 결제 · 계정 발급 · 환불 · 고객지원은 모두 겜스고를 통해 진행됩니다. 각 서비스명과 상표의 권리는 해당 소유자에게 있습니다.</p>
+      <p><b>제휴 고지</b> · 구독절반은 겜스고(GamsGo) 공식 운영사가 아니며, 겜스고 파트너 프로그램에 참여해 안내 콘텐츠를 제공하는 독립 사이트입니다. 본 페이지의 링크를 통해 상품을 구매하시면 운영자가 겜스고로부터 판매 수수료를 지급받습니다. 이는 구매자가 부담하는 금액에 영향을 주지 않습니다. 상품 가격 · 조건 · 재고는 겜스고 사정에 따라 사전 고지 없이 변경될 수 있고, 실제 결제 · 계정 발급 · 환불 · 고객지원은 모두 겜스고를 통해 진행됩니다. 각 서비스명과 상표의 권리는 해당 소유자에게 있습니다.</p>
     </div>
   </div>
 </section>
