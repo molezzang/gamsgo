@@ -27,6 +27,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 
@@ -41,7 +42,7 @@
   --g4:#8A8A8A;
   --g5:#6B6B6B;
   --sale:#EF2B2B;
-  --nav-h:104px;
+  --nav-h:158px; /* 고정 헤더 실측 151px + 여백 */
 }
 
 *{box-sizing:border-box;}
@@ -516,6 +517,49 @@ footer{border-top:1px solid var(--g2);padding:44px 0 100px;background:var(--wh);
   display:block;margin-top:9px;font-size:11.5px;color:var(--g4);letter-spacing:-.02em;
 }
 
+/* ══════════════════════════════════════════════════
+   모바일 최적화
+   ──────────────────────────────────────────────────
+   스레드 유입은 사실상 전량 모바일이라 첫 화면 밀도가
+   전환을 좌우한다. 상시 점유하는 헤더를 줄여 가격 카드를
+   접힘선 위로 끌어올리고, 손가락 탭 영역을 44px로 맞춘다.
+   ══════════════════════════════════════════════════ */
+@media(max-width:699px){
+  /* 모바일 고정 헤더 실측 111px — 앵커 이동 시 제목이 헤더에 가리지 않도록 */
+  :root{--nav-h:118px;}
+
+  /* 상단 유틸 내비: 탭 영역이 17px에 불과하고 헤더만 34px 키운다 → 숨김
+     (같은 링크가 푸터와 FAQ 영역에 그대로 있다) */
+  .hd-util{display:none;}
+  .hd-main .wrap{padding-top:11px;padding-bottom:11px;}
+  .logo b{font-size:23px;}
+  .logo i{font-size:14px;}
+  .hd-cta{padding:12px 16px;}
+  .tab{padding:14px 0 13px;}
+
+  /* 히어로 밀도 — 가격 카드를 첫 화면 안으로 */
+  .hero-in{padding:26px 20px 36px;gap:22px;}
+  .hero-eye{margin-bottom:11px;}
+  .hero-in > div > p{margin-bottom:18px;}
+  .hero-promo{margin-bottom:16px;padding:7px 7px 7px 15px;}
+  /* 안내문은 가격 카드 아래로 (마크업상 .hero-in 마지막 자식) */
+  .hero-note{margin-top:0;}
+
+  /* 탭 영역 44px 확보 */
+  .hero-promo button{padding:14px 15px;font-size:13px;}
+  .chip{padding:14px 16px;}
+  .sec-hd a{padding:12px 0;}
+  .promo-btn{padding:15px 20px;}
+  .pd-buy{padding:13px;}
+  .ft-col a{padding:7px 0;margin-bottom:2px;}
+
+  /* 카드 설명: 폭이 넓어 줄 수가 줄므로 최소 높이 해제 */
+  .pd-desc{min-height:0;-webkit-line-clamp:6;margin-bottom:10px;}
+
+  /* 광고 표시 바: 크기 요건(16px)은 유지하고 여백만 조인다 */
+  .adbar .wrap{padding:11px 0;line-height:1.45;}
+}
+
 [id]{scroll-margin-top:var(--nav-h);}
 @media(prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important;}
@@ -633,7 +677,7 @@ footer{border-top:1px solid var(--g2);padding:44px 0 100px;background:var(--wh);
     <div>
       <span class="hero-eye">GAMSGO AFFILIATE PARTNER</span>
       <h1>구독료는<br><s>제값</s> 대신<br>절반 아래로.</h1>
-      <p>유튜브 프리미엄부터 퍼플렉시티까지, 같은 프리미엄 등급을 겜스고 가격으로. 2026년 8월 19일 겜스고 결제창에서 직접 확인한 가격만 올렸고, <b>월 환산가와 실제 결제 총액을 함께</b> 적었습니다.</p>
+      <p>유튜브부터 퍼플렉시티까지, 같은 프리미엄 등급을 겜스고 가격으로. <b>2026년 8월 19일 결제창에서 직접 확인한 가격</b>만 올렸습니다.</p>
       <div class="hero-promo">
         <em>프로모션 코드</em>
         <b id="heroCode">PMU3W</b>
@@ -643,7 +687,6 @@ footer{border-top:1px solid var(--g2);padding:44px 0 100px;background:var(--wh);
         <a href="#board" class="btn-w">전체 가격표 보기</a>
         <a href="#calc" class="btn-o">절약액 계산하기</a>
       </div>
-      <p class="hero-note">표시 가격은 상품별 최장 플랜의 <b>월 환산가</b>입니다. 실제로는 그 기간만큼 한 번에 결제하며, 카드마다 총액을 함께 적어두었습니다.</p>
     </div>
 
     <div class="drop" aria-live="polite">
@@ -657,6 +700,8 @@ footer{border-top:1px solid var(--g2);padding:44px 0 100px;background:var(--wh);
       </div>
       <div class="drop-dots" id="dDots"></div>
     </div>
+
+    <p class="hero-note">표시 가격은 상품별 최장 플랜의 <b>월 환산가</b>입니다. 실제로는 그 기간만큼 한 번에 결제하며, 카드마다 총액을 함께 적어두었습니다.</p>
   </div>
 </section>
 
